@@ -29,9 +29,8 @@ public class ServicoCadastroController {
     public String cadastroServicos(Model model) {return "cadastroServico";}
 
     @PostMapping
-    public String cadastrarServico(@ModelAttribute("servico") @Valid List<Servico> servico,
+    public String cadastrarServico(@ModelAttribute("servico") @Valid Servico servico,
                                    BindingResult result){
-
         Servico existing = servicoRepository.findByNomeServico(servico.getNomeServico());
         if (existing != null){
             //result.rejectValue("cliente", null, "Cliente já existe");
